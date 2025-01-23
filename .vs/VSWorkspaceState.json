@@ -1,0 +1,23 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Ordinateur local": [
+      "out\\build\\x64-debug",
+      "out\\install\\x64-debug",
+      "out\\build\\x64-release",
+      "out\\install\\x64-release",
+      "out\\build\\x86-debug",
+      "out\\install\\x86-debug",
+      "out\\build\\x86-release",
+      "out\\install\\x86-release"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\build",
+    "\\build\\CMakeFiles",
+    "\\build\\CMakeFiles\\3.29.4",
+    "\\build\\CMakeFiles\\3.29.4\\CompilerIdC"
+  ],
+  "SelectedNode": "\\RiskMeasure.ipynb",
+  "PreviewInSolutionExplorer": false
+}
