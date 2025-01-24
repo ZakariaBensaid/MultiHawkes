@@ -1,6 +1,6 @@
 # MultiHawkes
 
-MultiHawkes is a project for simulating Hawkes processes using C++ and Python 3.10.14.
+MultiHawkes is a project for simulating multivariate Hawkes processes using C++ and Python 3.10.14.
 
 ## Installation in Windows
 
