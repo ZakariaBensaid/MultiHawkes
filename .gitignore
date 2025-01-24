@@ -20,5 +20,7 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
-
+#git folder
 .git
+#built folder
+.build/
