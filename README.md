@@ -19,7 +19,7 @@ MultiHawkes is a project for simulating Hawkes processes using C++ and Python 3.
     pip install -r requirements.txt
     ```
 
-4. You can either use the pre-built project by deleting "build" in .gitignore or build the project using CMake:
+4. You can either use the pre-built project or editing the CMakeList.txt file to your directories and build the project using CMake by adding "build" in .gitignore :
     ```sh
     mkdir build
     cd build
@@ -27,7 +27,7 @@ MultiHawkes is a project for simulating Hawkes processes using C++ and Python 3.
     cmake --build .
    ```
 
-5. Import the C++ class in Python:
+5. Import the C++ class in Python but don't forget to add the .pyd file in build/Debug next to the python file:
    ```python
    import hawkes
 
