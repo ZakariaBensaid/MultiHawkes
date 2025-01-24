@@ -25,5 +25,6 @@ TestResults.xml
 #built folder
 .vs/
 build/
+out/
 *.o
 *.exe
