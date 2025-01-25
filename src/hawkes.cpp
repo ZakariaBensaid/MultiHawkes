@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#include <include\hawkes.h>
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include <cstdlib>
@@ -7,6 +8,7 @@
 #include <chrono>
 #include <thread>
 #include <tuple>
+
 
 using namespace std::chrono;
 using namespace std;

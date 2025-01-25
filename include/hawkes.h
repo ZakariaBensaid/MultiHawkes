@@ -1,7 +1,4 @@
-﻿// hawkes.h : fichier Include pour les fichiers Include système standard,
-
-
-#pragma once
+﻿#pragma once
 
 #include <iostream>
 #include <vector>

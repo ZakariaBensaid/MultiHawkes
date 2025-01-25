@@ -18,10 +18,28 @@ find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
 find_package(pybind11 CONFIG REQUIRED)
 
 # ------------------------------------------------------------------------------
+# Include Directories
+# ------------------------------------------------------------------------------
+
+# Include directories for the core library
+include_directories(${Python3_INCLUDE_DIRS})
+include_directories(${pybind11_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR}/include)  
+
+# ------------------------------------------------------------------------------
 # BUILD the Extension Module
 # ------------------------------------------------------------------------------
-# We'll create a Python extension module named "hawkes" from hawkes.cpp
-add_library(hawkes MODULE hawkes.cpp)
+# ------------------------------------------------------------------------------
+# Add Library for Core Functions
+# ------------------------------------------------------------------------------
+
+# Create a library from hawkes.cpp which contains simulate_hawkes
+add_library(hawkes_core STATIC src/hawkes.cpp)
+
+target_include_directories(hawkes_core PUBLIC include)
+
+# We'll create a Python extension module named "hawkes" from hawkes_module.cpp
+add_library(hawkes MODULE src/hawkes_module.cpp)
 
 # Link Python and pybind11
 target_link_libraries(hawkes PRIVATE
