@@ -1,6 +1,7 @@
 #ifndef HAWKES_H
 #define HAWKES_H
 
+#pragma once
 #include <vector>
 #include <utility>
 

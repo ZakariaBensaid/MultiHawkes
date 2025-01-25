@@ -1,4 +1,3 @@
-#include <hawkes.h>
 #include <iostream>
 #include <vector>
 #include <cmath>

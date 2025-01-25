@@ -1,4 +1,4 @@
-#include <hawkes.h>
+#include "include/hawkes.h"
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
