@@ -6,13 +6,10 @@
 #include <algorithm>
 #include <chrono>
 #include <thread>
-#include <pybind11/pybind11.h>
-#include <pybind11/stl.h>
 #include <tuple>
 
 using namespace std::chrono;
 using namespace std;
-namespace py = pybind11;
 
 // Function to generate a uniform random number between 0 and 1
 static double uniform() {
@@ -162,10 +159,7 @@ static pair<vector<vector<int>>, vector<vector<vector<double>>>>  SimulateHawkes
     return {result, jumpTimes};
 }
 
-PYBIND11_MODULE(hawkes, m) {
-    m.def("simulate_hawkes", &SimulateHawkes, "Function to simulate Hawkes processes",
-        py::arg("nbSimulations"), py::arg("nbThreads"), py::arg("mu"), py::arg("alpha"), py::arg("beta"), py::arg("T"));
-}
+
 
 
 

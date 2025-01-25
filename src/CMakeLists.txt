@@ -9,14 +9,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # FIND Python and pybind11
 # ------------------------------------------------------------------------------
 
-## Example of my paths to the Python interpreter : 
-
-#set(Python3_ROOT_DIR "C:/Users/zbensaid/AppData/Local/anaconda3/envs/pyZak") (without #)
-#set(Python3_EXECUTABLE "C:/Users/zbensaid/AppData/Local/anaconda3/envs/pyZak/python.exe") (without #)
-#set(pybind11_DIR "C:/vcpkg/packages/pybind11_x64-windows/share/pybind11") (without #)
- 
-## How to proceed :
-
 # You can use the Anaconda environment (e.g., conda activate) or
 # directly pass -DPython3_ROOT_DIR=... on the command line.
 find_package(Python3 COMPONENTS Interpreter Development.Module REQUIRED)
