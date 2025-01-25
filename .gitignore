@@ -23,6 +23,7 @@ TestResults.xml
 #git folder
 .git
 #built folder
+.venv/
 .vs/
 build/
 out/

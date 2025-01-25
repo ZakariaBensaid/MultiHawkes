@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.12)
 project(hawkes LANGUAGES CXX)
 
 # Use a modern C++ standard (e.g., C++17)
