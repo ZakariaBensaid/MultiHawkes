@@ -24,7 +24,7 @@ TestResults.xml
 .git
 #built folder
 .vs/
-#build/
+build/
 out/
 *.o
 *.exe
