@@ -34,12 +34,12 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 # ------------------------------------------------------------------------------
 
 # Create a library from hawkes.cpp which contains simulate_hawkes
-add_library(hawkes_core STATIC src/hawkes.cpp)
+add_library(hawkes_core STATIC hawkes.cpp)
 
 target_include_directories(hawkes_core PUBLIC include)
 
 # We'll create a Python extension module named "hawkes" from hawkes_module.cpp
-add_library(hawkes MODULE src/hawkes_module.cpp)
+add_library(hawkes MODULE hawkes_module.cpp)
 
 # Link Python and pybind11
 target_link_libraries(hawkes PRIVATE

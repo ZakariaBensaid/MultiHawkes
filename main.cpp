@@ -1,3 +1,4 @@
+#include "hawkes.h"
 #include <chrono>
 #include <iostream>
 #include <vector>
@@ -11,10 +12,10 @@ int main() {
     using namespace std::chrono;
 
     // Set the parameters of the Hawkes process
-    double T = 1.0;
+    double T = 0.5;
     int d = 10;
     int nbThreads = 10;
-    int nbSimulations = 1000;
+    int nbSimulations = 10000;
 
     // Initialize mu as a vector of doubles
     vector<double> mu = {2.0, 1.5, 0.01, 0.1, 0.8, 2.0, 0.3, 0.2, 0.5, 0.01};
@@ -53,7 +54,7 @@ int main() {
     // Start timing (optional)
     auto start_time = high_resolution_clock::now();
 
-   pair<vector<vector<int>>, vector<vector<vector<double>>>> result = simulate_hawkes(nbSimulations, nbThreads, mu, alpha, beta, T);
+    pair<vector<vector<int>>, vector<vector<vector<double>>>> result = SimulateHawkes(nbSimulations, nbThreads, mu, alpha, beta, T);
 
     // Stop timing
     auto end_time = high_resolution_clock::now();
@@ -61,14 +62,4 @@ int main() {
 
     // Output the results
     cout << "Simulation completed in " << elapsed.count() << " seconds." << endl;
-    cout << "Result: " << result.first << endl;
-
-    // Assuming jump_times is a vector of doubles
-    cout << "Jump Times:" << endl;
-    for (const auto& jt : result.second) {
-        cout << jt << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
+};
