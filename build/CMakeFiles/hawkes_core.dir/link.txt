@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhawkes_core.a CMakeFiles/hawkes_core.dir/hawkes.cpp.o
+/usr/bin/ranlib libhawkes_core.a

@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC -g -Wl,--dependency-file=CMakeFiles/hawkes.dir/link.d -shared  -o hawkes.cpython-312-x86_64-linux-gnu.so CMakeFiles/hawkes.dir/hawkes_module.cpp.o  libhawkes_core.a

@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/zbensaid/Github/MultiHawkes/build",
+  "command": "/usr/bin/g++  -I/usr/include/python3.12 -I/home/zbensaid/Github/MultiHawkes/.venv/include -I/home/zbensaid/Github/MultiHawkes/include -g -std=gnu++17 -fPIC -o CMakeFiles/hawkes_core.dir/hawkes.cpp.o -c /home/zbensaid/Github/MultiHawkes/hawkes.cpp",
+  "file": "/home/zbensaid/Github/MultiHawkes/hawkes.cpp",
+  "output": "CMakeFiles/hawkes_core.dir/hawkes.cpp.o"
+},
+{
+  "directory": "/home/zbensaid/Github/MultiHawkes/build",
+  "command": "/usr/bin/g++ -Dhawkes_EXPORTS -I/home/zbensaid/Github/MultiHawkes/include -isystem /usr/include/python3.12 -isystem /home/zbensaid/Github/MultiHawkes/.venv/include -g -std=gnu++17 -fPIC -o CMakeFiles/hawkes.dir/hawkes_module.cpp.o -c /home/zbensaid/Github/MultiHawkes/hawkes_module.cpp",
+  "file": "/home/zbensaid/Github/MultiHawkes/hawkes_module.cpp",
+  "output": "CMakeFiles/hawkes.dir/hawkes_module.cpp.o"
+}
+]
