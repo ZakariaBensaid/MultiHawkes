@@ -3,7 +3,7 @@ import os
 import sys
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
-module_dir = os.path.join(script_dir, 'build') # path to the hawkes library and sometimes it's 'build/Debug' or 'build/Release' for windows    
+module_dir = os.path.join(script_dir, 'build') # path to the hawkes library and sometimes it's 'build/Debug' or 'build/Release' for windows   (look for .pyd file) 
 sys.path.insert(0, 'build/')
 
 # Import the hawkes library
