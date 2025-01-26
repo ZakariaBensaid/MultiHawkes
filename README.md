@@ -1,6 +1,6 @@
 # MultiHawkes
 
-MultiHawkes is a project for simulating multivariate Hawkes processes using C++ and Python 3.10.14.
+MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 17 and Python 3.
 
 ## Installation in Windows
 
@@ -12,7 +12,7 @@ MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 
 2. Download and install Visual Studio for C++ :
     - Download and install [Visual Studio](https://visualstudio.microsoft.com/) with the "Desktop development with C++" workload.
 
-3. Install requirements: (cmake, pybind11, numpy, matplotlib, pandas, tensorflow==2.10.0, cudatoolkit==11.2.2, cudnn==8.1.0.77..)
+3. Install requirements: (cmake, pybind11, numpy, matplotlib, tensorflow)
     ```sh
     pip install -r requirements.txt
     ```
@@ -33,7 +33,7 @@ MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 
     cd MultiHawkes
     ```
 
-2. Install requirements: (cmake, pybind11, numpy, matplotlib, pandas, tensorflow==2.10.0, cudatoolkit==11.2.2, cudnn==8.1.0.77)
+2. Install requirements: (cmake, pybind11, numpy, matplotlib, tensorflow)
     ```sh
     pip install -r requirements.txt
     ```
