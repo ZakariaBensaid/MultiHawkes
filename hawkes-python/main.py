@@ -2,14 +2,14 @@
 import os 
 import sys
 
-module_dir = os.path.join("..", 'build') # path to the hawkes library and sometimes it's 'build\Debug' or 'build\Release' for windows    
-sys.path.insert(0, module_dir)
-try:
-    import hawkes  # or any problematic import
-except ImportError as e:
-    print("ImportError:", e)
-    print("  • Ensure cmake and pybind11 are installed.")
-    print("  • if you are using windows, change the path to the hawkes library in the script: build --> build\\Debug or build\\Release.")
+dirs_to_add = [
+    os.path.join("..", "build"),
+    os.path.join("..", "build", "Debug"),
+    os.path.join("..", "build", "Release")
+]
+
+for d in dirs_to_add:
+    sys.path.insert(0, d)
 
 # Import the hawkes library
 import hawkes
