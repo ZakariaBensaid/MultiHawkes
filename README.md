@@ -45,10 +45,12 @@ MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 
     cmake ..
     make
    ```
-## Test
-Run the following code : (Notice: if you don't have the build folder it won't run)
 
-   ```python
+## Test
+
+1.  Run the following code : (Notice: if you don't have the build folder it won't run)
+
+    ```python
     #Set the path to the hawkes library
     import os 
     import sys
@@ -69,7 +71,7 @@ Run the following code : (Notice: if you don't have the build folder it won't ru
     results, jump_times = hawkes.simulate_hawkes(nbSimulations, nbThreads, mu, alpha, beta, T)
     print(results)
     print(jump_times)
-   ```
+    ```
 
 ## Contributing
 

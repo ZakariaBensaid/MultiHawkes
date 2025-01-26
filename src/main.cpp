@@ -17,10 +17,10 @@ int main() {
     int nbThreads = 1;
     int nbSimulations = 10000;
 
-    // Initialize mu as a vector of doubles
+    // mu
     vector<double> mu = {5.0, 1.5, 0.01, 0.1, 6.8, 2.0, 0.3, 0.2, 2.5, 0.01};
 
-    // Initialize alpha
+    // alpha
     vector<vector<double>> alpha = {
         {0.5, 0.1, 3.0, 2.0, 0.4, 2.4, 0.1, 1.5, 0.1, 0.1},
         {0.2, 0.6, 3.0, 0.1, 0.2, 0.1, 0.7, 1.2, 0.1, 0.5},
@@ -34,7 +34,7 @@ int main() {
         {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0}
     };
 
-    // Initialize beta 
+    // beta 
     vector<vector<double>> beta = {
         {10.0, 10.0, 10.0, 15.0, 8.0, 10.0, 1.0, 10.0, 10.0, 10.0},
         {9.0, 12.0, 15.0, 8.0, 10.0, 11.0, 10.0, 6.0, 10.0, 10.0},
@@ -48,10 +48,10 @@ int main() {
         {10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0}
     };
 
-    // Seed the random number generator (optional, for reproducibility)
+    // Seed the random number generator 
     srand(static_cast<unsigned int>(time(0)));
 
-    // Start timing (optional)
+    // Start timing 
     auto start_time = high_resolution_clock::now();
 
     pair<vector<vector<int>>, vector<vector<vector<double>>>> result = SimulateHawkes(nbSimulations, nbThreads, mu, alpha, beta, T);
@@ -60,6 +60,6 @@ int main() {
     auto end_time = high_resolution_clock::now();
     duration<double> elapsed = end_time - start_time;
 
-    // Output the results
+    // results
     cout << "Simulation completed in " << elapsed.count() << " seconds." << endl;
 };

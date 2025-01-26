@@ -18,7 +18,7 @@ static double uniform() {
     return rand() / static_cast<double>(RAND_MAX);
 }
 
-// Function to generate an exponential random number with rate parameter lambda
+// Function to generate an exponential random number with rate parameter lambda (inverse function method)
 static double exponential(double lambda) {
     return -log(uniform()) / lambda;
 }
@@ -109,7 +109,7 @@ private:
                 return k;
             }
         }
-        return M - 1; // Should not reach here if threshold is correctly calculated
+        return M - 1; 
     }
 
     void updateProcess(int k) {
