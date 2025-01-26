@@ -2,9 +2,10 @@
 import os 
 import sys
 
-script_dir = os.path.dirname(os.path.realpath(__file__))
-module_dir = os.path.join(script_dir, 'build') # path to the hawkes library and sometimes it's 'build\Debug' or 'build\Release' for windows   (look for .pyd file) 
+module_dir = os.path.join("..", 'build') # path to the hawkes library and sometimes it's 'build\Debug' or 'build\Release' for windows   (look for .pyd file) 
 sys.path.insert(0, module_dir)
+
+print(sys.path)
 
 # Import the hawkes library
 import hawkes
@@ -46,4 +47,4 @@ T = 1.0
 nbThreads = 10
 nbSimulations = 1000
 
-result, jump_times = hawkes.SimulateHawkes(nbSimulations, nbThreads, mu, alpha, beta, T)
+result, jump_times = hawkes.SimulateHawkes(nbSimulations, nbThreads, mu, alpha, beta, T, True)

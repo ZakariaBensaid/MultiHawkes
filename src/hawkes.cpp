@@ -119,7 +119,7 @@ private:
 };
 
 // Function to run simulations in parallel
-pair<vector<vector<int>>, vector<vector<vector<double>>>>  SimulateHawkes(int nbSimulations, int nbThreads, const vector<double> mu, const vector<vector<double>> alpha, const vector<vector<double>> beta, double T) {
+pair<vector<vector<int>>, vector<vector<vector<double>>>>  SimulateHawkes(int nbSimulations, int nbThreads, const vector<double> mu, const vector<vector<double>> alpha, const vector<vector<double>> beta, double T, bool logSimulations) {
     vector<vector<int>> result(nbSimulations, vector<int>(mu.size()));
     vector<vector<vector<double>>> jumpTimes(nbSimulations, vector<vector<double>>(mu.size()));
     auto simulateThread = [&](int start, int end) {
@@ -151,13 +151,16 @@ pair<vector<vector<int>>, vector<vector<vector<double>>>>  SimulateHawkes(int nb
     };
 
     // Output the results
-    for (int i = 0; i < nbSimulations; ++i) {
+    if (logSimulations){for (int i = 0; i < nbSimulations; ++i) {
         std::cout << "Simulation " << i + 1 << ": ";
         for (int j = 0; j < mu.size(); ++j) {
             std::cout << result[i][j] << " ";
         }
         std::cout << std::endl;
+    }
     };
+    
+
     return {result, jumpTimes};
 }
 

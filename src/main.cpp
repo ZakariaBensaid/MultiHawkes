@@ -54,7 +54,7 @@ int main() {
     // Start timing 
     auto start_time = high_resolution_clock::now();
 
-    pair<vector<vector<int>>, vector<vector<vector<double>>>> result = SimulateHawkes(nbSimulations, nbThreads, mu, alpha, beta, T);
+    pair<vector<vector<int>>, vector<vector<vector<double>>>> result = SimulateHawkes(nbSimulations, nbThreads, mu, alpha, beta, T, true);
 
     // Stop timing
     auto end_time = high_resolution_clock::now();
