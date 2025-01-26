@@ -44,7 +44,7 @@ MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 
     cd build
     cmake ..
     make
-   ```
+    ```
 
 ## Test
 
