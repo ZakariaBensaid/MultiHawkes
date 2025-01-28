@@ -26,18 +26,29 @@ static double exponential(double lambda) {
 class HawkesProcess {
 public:
     HawkesProcess(const vector<double>& mu, const vector<vector<double>>& alpha, const vector<vector<double>>& beta, double T)
-        : mu(mu), alpha(alpha), beta(beta), T(T), M(mu.size()), s(0), nm(M, 0), Tm(M) {
+        : mu(mu), alpha(alpha), beta(beta), T(T), M(mu.size()), t(0), nm(M, 0), Tm(M), cumLambda(M, 0.0) {
         srand(time(nullptr));  
     }
-
+    // Ogata's thinning method
     void simulate() {
-        while (s < T) {
-            double lambda_bar = calculateLambdaBar();
-            double w = exponential(lambda_bar);
-            s += w;
-            double D = uniform();
-            if (D * lambda_bar <= calculateLambdaBar()) {
-                int k = determineDimension(D * lambda_bar);
+        // Time loop
+        while (t < T) {
+            // Track intensities
+            cumLambda.assign(M, 0.0);
+            // Compute intensity at time t
+            double lambdaOld = calculateLambda(t, false);
+            // Generate next "potential" jump time
+            double jumpTime = exponential(lambdaOld);
+            t += jumpTime;
+            if (t > T) {
+                break; 
+            }
+            // Compute the intensity at time t+jump (Phi decreasing -> smaller)
+            double lambdaNew = calculateLambda(t, true);
+            // Accept the jump time with probability lambdaNew/lambdaOld
+            double U = lambdaOld * uniform();
+            if (U >= lambdaOld - lambdaNew) {
+                int k = determineDimension(U, lambdaOld);
                 updateProcess(k);
             }
         }
@@ -46,8 +57,8 @@ public:
     void printResults() const {
         for (int m = 0; m < M; ++m) {
             cout << "T" << m + 1 << " = {";
-            for (auto t : Tm[m]) {
-                cout << t << " ";
+            for (auto jumpTime : Tm[m]) {
+                cout << jumpTime << " ";
             }
             cout << "}" << endl;
         }
@@ -67,7 +78,7 @@ public:
 
     void reset() {
         // Clear internal state or data structures
-        s = 0;
+        t = 0;
         nm.assign(M, 0);
         Tm.assign(M, {});
     }
@@ -77,44 +88,43 @@ private:
     vector<vector<double>> beta;
     double T;
     int M;
-    double s;
+    double t;
     vector<int> nm;
     vector<vector<double>> Tm;
+    vector<double> cumLambda;
 
-    double calculateLambdaBar() {
-        double lambda_bar = 0;
-        for (int m = 0; m < M; ++m) {
-            double lambda_m = mu[m];
+    // Compute intensity at time s (discrete convolution)
+    double calculateLambda(double s, bool track) {
+        double lambda = 0;
+        for (int k = 0; k < M; ++k) {
+            double lambda_k = mu[k];
             for (int n = 0; n < M; ++n) {
                 for (auto tau : Tm[n]) {
-                    lambda_m += alpha[m][n] * exp(-beta[m][n] * (s - tau));
+                    lambda_k += alpha[k][n] * exp(-beta[k][n] * (s - tau));
                 }
             }
-            lambda_bar += lambda_m;
+            lambda += lambda_k;
+            if (track){
+                cumLambda[k] = lambda;
+                }
         }
-        return lambda_bar;
+        return lambda;
     }
 
-
-    int determineDimension(double threshold) {
-        double cumulative_sum = 0;
+    // Determine first dimension where the jump is accepted
+    int determineDimension(double threshold, double lambdaOld) {
         for (int k = 0; k < M; ++k) {
-            cumulative_sum += mu[k];
-            for (int n = 0; n < M; ++n) {
-                for (auto tau : Tm[n]) {
-                    cumulative_sum += alpha[k][n] * exp(-beta[k][n] * (s - tau));
-                }
-            }
-            if (threshold <= cumulative_sum) {
+            if (threshold >= lambdaOld - cumLambda[k]) {
                 return k;
             }
         }
         return M - 1; 
     }
 
+    // Add new jump and new jump time
     void updateProcess(int k) {
         nm[k]++;
-        Tm[k].push_back(s);
+        Tm[k].push_back(t);
     }
 };
 
