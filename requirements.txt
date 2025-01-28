@@ -2,5 +2,5 @@ cmake
 matplotlib
 numpy
 seaborn
-tensorflow
+tensorflow-cpu
 pybind11[global]
