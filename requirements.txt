@@ -2,5 +2,5 @@ cmake
 matplotlib
 numpy
 seaborn
-tensorflow==2.18.0
+tensorflow
 pybind11[global]
