@@ -6,7 +6,7 @@ MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/MultiHawkes.git
+    git clone https://github.com/ZakariaBensaid/MultiHawkes.git
     cd MultiHawkes
     ```
 2. Download and install Visual Studio for C++ :
@@ -29,7 +29,7 @@ MultiHawkes is a project for simulating multivariate Hawkes processes using C++ 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/MultiHawkes.git
+    git clone https://github.com/ZakariaBensaid/MultiHawkes.git
     cd MultiHawkes
     ```
 
